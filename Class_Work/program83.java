@@ -1,0 +1,59 @@
+
+import java.util.*;
+
+class Number {
+
+    public boolean CheckPerfect(int iNo) {
+
+        int i = 0;
+        int iSum = 0;
+
+        if (iNo < 0) {
+            iNo = -iNo;
+        }
+
+        for (i = 1; i <= (iNo / 2); i++) {
+
+            if (iNo % i == 0) {
+                iSum += i;
+            }
+
+            if(iSum > iNo)
+            {
+                break;
+            }
+
+        }
+        return (iSum == iNo);                  //change
+    }
+}//End of Class Number 
+
+class program83 {
+
+    public static void main(String A[]) {
+        int iValue = 0;
+        boolean bRet = false;
+
+        Scanner sobj = new Scanner(System.in);
+
+        System.out.println("Enter the Number: ");
+        iValue = sobj.nextInt();
+
+        Number nobj = new Number();
+
+        bRet = nobj.CheckPerfect(iValue);
+
+        if (bRet == true) {
+            System.out.println(iValue + " is perfect Number");
+        } else {
+            System.out.println(iValue + " is not a perfect Number");
+
+        }
+
+        // Important
+        sobj = null;
+        nobj = null;
+
+        System.gc();
+    }
+}
